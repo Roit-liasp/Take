@@ -32,7 +32,7 @@
 #include <string>
 #include <vector>
 
-namespace toml_lite {
+namespace toml {
 
 struct ParseError : std::runtime_error {
     size_t line;
