@@ -1,0 +1,32 @@
+# TOML build configuration for take buld system.
+
+default = "build"
+
+[vars]
+CXX      = "g++"
+STD      = "c++17"
+FLAGS    = "-O2 -Wall -Wextra"
+OUT      = "take"
+
+[build]
+desc = "Build take"
+run  = [
+  "${CXX} -std=${STD} ${FLAGS} -Iinclude src/main.cpp -o ${OUT}",
+]
+
+[install]
+desc = "Install take (sudo or su)"
+deps = ["build"]
+run  = [
+  "install -d /usr/local/bin",
+  "install -m 755 ${OUT} /usr/local/bin/take",
+]
+
+[clean]
+desc = "Clean build"
+run  = ["rm -f ${OUT}"]
+
+[test]
+desc = "Speed test"
+deps = ["build"]
+run  = ["./${OUT} --version"]
