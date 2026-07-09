@@ -250,7 +250,7 @@ int runFunction(const Config &cfg, const std::string &name, std::set<std::string
     bool quiet = opts.quiet || fn.quiet;
 
     if (!quiet)
-        std::cerr << colorize("1;34", "==>") << " take " << colorize("1;36", name) << (fn.desc.empty() ? "" : (" — " + fn.desc)) << "\n";
+        std::cerr << colorize("1;34", "==>") << " take " << colorize("1;36", name) << (fn.desc.empty() ? "" : (" - " + fn.desc)) << "\n";
 
     std::map<std::string, std::string> builtins;
     builtins["TAKE_FUNC"] = name;
