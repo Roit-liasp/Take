@@ -159,11 +159,11 @@ Config loadConfig(const fs::path &path) {
     std::stringstream ss;
     ss << f.rdbuf();
 
-    toml_lite::Document doc;
+    toml::Document doc;
     try {
-        doc = toml_lite::parse(ss.str());
+        doc = toml::parse(ss.str());
     }
-    catch (const toml_lite::ParseError &e) {
+    catch (const toml::ParseError &e) {
         die(path.string() + ": " + e.what());
     }
 
@@ -196,9 +196,9 @@ Config loadConfig(const fs::path &path) {
         if (auto it = tbl.find("run"); it != tbl.end())
             fn.run = it->second.asStringArray();
         if (auto it = tbl.find("quiet"); it != tbl.end())
-            fn.quiet = (it->second.type == toml_lite::Type::Bool) ? it->second.boolean : false;
+            fn.quiet = (it->second.type == toml::Type::Bool) ? it->second.boolean : false;
         if (auto it = tbl.find("ignore_errors"); it != tbl.end())
-            fn.ignoreErrors = (it->second.type == toml_lite::Type::Bool) ? it->second.boolean : false;
+            fn.ignoreErrors = (it->second.type == toml::Type::Bool) ? it->second.boolean : false;
 
         std::string osKey = "run_" + osTag;
         if (auto it = tbl.find(osKey); it != tbl.end())
