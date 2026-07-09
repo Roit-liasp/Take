@@ -1,5 +1,7 @@
 ## [En]
-![take logo](image/logo.jpg)
+<p align="center">
+  <img src="image/logo.jpg" width="300">
+</p>
 # Take
 
 A minimal build system inspired by Make, configured via a simple TOML, in C++17.
@@ -31,7 +33,9 @@ BSD 2-Clause License. See LICENSE.md.
 ---
 
 ## [Ru]
-![take logo](image/logo.jpg)
+<p align="center">
+  <img src="image/logo.jpg" width="300">
+</p>
 # Take
 
 Минимальная система сборки, вдохновлённая Make, но настраиваемая через простой TOML, на C++17.
